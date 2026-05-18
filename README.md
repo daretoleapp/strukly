@@ -2,6 +2,10 @@
 
 > Indonesian receipt scanner powered by **Xiaomi MiMo VL**.
 
+🌐 **Live demo:** [strukly-chi.vercel.app](https://strukly-chi.vercel.app)
+
+![Strukly dashboard](docs/screenshots/dashboard.png)
+
 Snap a photo of a struk (Indonesian receipt) and Strukly extracts:
 
 - **Merchant, date, total, line items** — fully structured
