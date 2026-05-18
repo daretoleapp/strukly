@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: light;
+  --grain-opacity: 0.03;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --grain-opacity: 0.06;
+  }
+}
+
+html,
+body {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: #fdfbf7;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #0a0a0c;
+  }
+}
+
+/* Subtle film-grain texture for warmth */
+.grain::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--grain-opacity);
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* Hero gradient blob */
+.blob-amber {
+  background:
+    radial-gradient(60% 80% at 0% 0%, rgba(251, 191, 36, 0.18) 0%, transparent 60%),
+    radial-gradient(50% 70% at 100% 30%, rgba(244, 114, 182, 0.10) 0%, transparent 60%),
+    radial-gradient(40% 60% at 70% 100%, rgba(56, 189, 248, 0.08) 0%, transparent 60%);
+}
+
+@media (prefers-color-scheme: dark) {
+  .blob-amber {
+    background:
+      radial-gradient(60% 80% at 0% 0%, rgba(251, 191, 36, 0.10) 0%, transparent 60%),
+      radial-gradient(50% 70% at 100% 30%, rgba(244, 114, 182, 0.06) 0%, transparent 60%),
+      radial-gradient(40% 60% at 70% 100%, rgba(56, 189, 248, 0.05) 0%, transparent 60%);
+  }
+}
+
+/* Receipt-style dotted divider */
+.dot-divider {
+  background-image: radial-gradient(circle, currentColor 0.5px, transparent 1px);
+  background-size: 6px 1px;
+  background-repeat: repeat-x;
+  background-position: center;
+  height: 1px;
+  width: 100%;
+  opacity: 0.25;
+}
+
+/* Tabular numerals for prices */
+.tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Card hover lift */
+.card-lift {
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.card-lift:hover {
+  transform: translateY(-1px);
+}
